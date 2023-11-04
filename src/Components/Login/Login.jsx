@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -118,6 +119,7 @@ const Login = () => {
                                     </svg>
                                     Continue with Facebook
                                 </a>
+                                <p className="text-center">If there is no account<Link to={'/registration'}   className="text-base hover:text-blue-600 hover:underline hover:font-semibold"> Registration</Link></p>
                               
                             </form>
                         </div>
