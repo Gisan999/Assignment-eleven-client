@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -47,10 +50,15 @@ const Login = () => {
                                        >Password
                                        </label>
                                     <input name="password"
-                                        type="password"
+                                          type={showPassword ? "text" : "password"}
                                         className="peer hover:bg-gray-200 block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]motion-reduce:transition-none dark:text-neutral-200  [&:not([data-te-input-placeholder-active])]"
                                         id="exampleFormControlInput33"
                                         placeholder="Password" />
+                                                 <span className="absolute top-9 right-3" onClick={() => setShowPassword(!showPassword)}>
+                                            {
+                                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                            }
+                                        </span>
                                   
                                 </div>
 
