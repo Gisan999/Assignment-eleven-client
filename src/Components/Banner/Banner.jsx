@@ -7,11 +7,11 @@ import blog5 from '../../assets/blog5.webp'
 import blog6 from '../../assets/blog6.jpeg'
 import blog7 from '../../assets/blog7.webp'
 import blog8 from '../../assets/blog8.webp'
-import blog9 from '../../assets/blog9.webp'
+import blog9 from '../../assets/blog10.webp'
 const Banner = () => {
     return (
         <div>
-            <div className="grid h-96 lg:grid-cols-2 lg:gap-4 sm:h-[550px] xl:h-[650px] ">
+            <div className="grid h-96 lg:grid-cols-2 lg:gap-4 sm:h-[650px] xl:h-[650px] ">
                 <Carousel>
                     <img className='h-full' src={blog2} alt="..." />
                     <img className='h-full' src={blog3} alt="..." />
