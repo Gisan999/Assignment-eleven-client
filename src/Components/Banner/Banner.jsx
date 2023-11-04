@@ -1,23 +1,32 @@
 import { Carousel } from 'flowbite-react';
+import blog from '../../assets/blog1.jpg'
+import blog2 from '../../assets/blog2.jpeg'
+import blog3 from '../../assets/blog3.jpeg'
+import blog4 from '../../assets/blog4.jpeg'
+import blog5 from '../../assets/blog5.webp'
+import blog6 from '../../assets/blog6.jpeg'
+import blog7 from '../../assets/blog7.webp'
+import blog8 from '../../assets/blog8.webp'
+import blog9 from '../../assets/blog9.webp'
 const Banner = () => {
     return (
         <div>
             <div className="grid h-96 lg:grid-cols-2 lg:gap-4 sm:h-[550px] xl:h-[650px] ">
                 <Carousel>
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <h2 className='text-5xl font-bold text-red-500'>hello</h2>
+                    <img className='h-full' src={blog2} alt="..." />
+                    <img className='h-full' src={blog3} alt="..." />
+                    <img className='h-full' src={blog4} alt="..." />
+                    <img className='h-full' src={blog5} alt="..." />
+                    <img className='h-full' src={blog6} alt="..." />
+
                 </Carousel>
                 <Carousel className='invisible lg:visible'>
-                {/* indicators={false} */}
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
-                    <img src="https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3RwQdHRHg-unsplash.jpg" alt="..." />
+                    {/* indicators={false} */}
+                    <img className='h-full' src={blog} alt="..." />
+                    <img className='h-full' src={blog7} alt="..." />
+                    <img className='h-full' src={blog7} alt="..." />
+                    <img className='h-full' src={blog8} alt="..." />
+                    <img className='h-full' src={blog9} alt="..." />
                 </Carousel>
             </div>
         </div>
