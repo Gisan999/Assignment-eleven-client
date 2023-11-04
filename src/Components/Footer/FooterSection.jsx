@@ -4,14 +4,15 @@ import logo from '../../assets/logo2-removebg-preview.png'
 const FooterSection = () => {
     return (
         <div>
-            <Footer container>
-                <div className="w-full lg:px-14 py-6">
+            <Footer className='bg-slate-50' container>
+                <div className="w-full  py-6  container mx-auto">
                     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                         <div>
-                            <Footer.Brand
+                            {/* <Footer.Brand
                                 href=""
                                 src={logo}
-                            />
+                            /> */}
+                            <img className='w-40 lg:w-72 ' src={logo} alt="" />
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
                             <div>
@@ -37,10 +38,7 @@ const FooterSection = () => {
                             </div>
                         </div>
                     </div>
-                            <div className='flex justify-end py-6'>
-                                <input className='bg-gray-50 lg:pr-24 px-5 rounded-md border-4 border-red-300' placeholder='Email Address' type="email" name="email" id="" />
-                                <button className='bg-sky-400 px-5 border-4 border-red-400  rounded-r-lg relative right-8 text-white font-bold'>Subscribe</button>
-                            </div>
+                            
                     <Footer.Divider />
                     <div className="w-full sm:flex sm:items-center sm:justify-between">
                         <Footer.Copyright by="Creativity™" year={2022} />
