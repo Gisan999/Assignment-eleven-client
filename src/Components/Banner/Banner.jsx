@@ -10,7 +10,7 @@ import blog8 from '../../assets/blog8.webp'
 import blog9 from '../../assets/blog10.webp'
 const Banner = () => {
     return (
-        <div>
+        <div className='mt-12'>
             <div className="grid h-80 lg:grid-cols-2 lg:gap-4 sm:h-[450px] xl:h-[650px] ">
                 <Carousel>
                     <img className='h-full' src={blog2} alt="..." />

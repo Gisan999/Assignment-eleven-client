@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Registration = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
     const [red, setRed] = useState(false);
+    const {registerUser} = useContext(AuthContext);
 
     const handleRegistration = event => {
         event.preventDefault();
@@ -76,6 +78,13 @@ const Registration = () => {
         }
         setRed(false)
         console.log(name, photo, email, password, check, pass2);
+        registerUser(email, password)
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }
 
     return (

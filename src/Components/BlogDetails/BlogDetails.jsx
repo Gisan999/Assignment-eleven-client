@@ -1,15 +1,15 @@
 
 const BlogDetails = () => {
     return (
-        <div>
-            <div className="mt-6 bg-gray-50">
-                <div className=" px-3 md:px-10 py-6 mx-auto">
+        <div >
+            <div className="pt-6 bg-slate-50 ">
+                <div className="  px-3 md:px-10 py-6 mx-auto">
 
-                    <div className="max-w-6xl px-10 py-6 mx-auto bg-gray-50">
+                    <div className="container bg-teal-50  px-10 py-6 mx-auto ">
 
-                        <a href="#_" className="block transition duration-200 ease-out transform hover:scale-110">
-                            <img className="object-cover w-full shadow-sm h-full" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80" />
-                        </a>
+                        <div  className="max-h-screen">
+                            <img className="  w-full h-[650px]" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80" />
+                        </div>
 
                         <div className="flex items-center justify-start mt-4 mb-4">
                            
@@ -30,7 +30,7 @@ const BlogDetails = () => {
                                 <a href="#" className="flex items-center mt-6 mb-6"><img
                                     src="https://avatars.githubusercontent.com/u/71964085?v=4"
                                     alt="avatar" className=" object-cover w-14 h-14 mx-4 rounded-full sm:block" />
-                                    <h1 className="font-bold text-gray-700 hover:underline">By James Amos</h1>
+                                    <h1 className="font-bold text-gray-700 hover:underline border-l-2 border-blue-600 pl-2 ">By James Amos</h1>
                                 </a>
                             </div>
                         </div>
@@ -66,12 +66,12 @@ const BlogDetails = () => {
                         <p className="mt-1 text-2xl font-bold text-left text-gray-800 sm:mx-6 sm:text-2xl md:text-3xl lg:text-4xl sm:text-center ">
                             All comments on this post
                         </p>
-                        <div className="flex  border-r-4 border-r-blue-400  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+                        <div className=" relative  border-r-4 border-r-blue-400  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
 
-                            <a href="#" className="flex items-center mt-6 mb-6 mr-6"><img src="https://avatars.githubusercontent.com/u/71964085?v=4" alt="avatar" className="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block" />
-                            </a>
+                            <div  className=" absolute  left-1 top-0 mt-6 mb-6 mr-6"><img src="https://avatars.githubusercontent.com/u/71964085?v=4" alt="avatar" className="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block" />
+                            </div>
 
-                            <div><h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">By James Amos</h3>
+                            <div className="pl-10"><h3 className="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">By James Amos</h3>
                                 <p className="text-sm font-bold text-gray-300">August 22,2021</p>
                                 <p className="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
                                     Please help with how you did the migrations for the blog database fields.I tried mine using exactly what you instructed but its not working!!.</p>
