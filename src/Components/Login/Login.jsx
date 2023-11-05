@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../useAuth/useAuth";
 import Swal from "sweetalert2";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const {logIn} = useAuth();
+    const { logIn, setLoading} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -18,32 +21,47 @@ const Login = () => {
         console.log(email, password);
 
         logIn(email, password)
-        .then(result => {
-            console.log(result);
-            Swal.fire({
-                position: 'top-right',
-                title: `success`,
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 2000
-            })
-            navigate(location?.state ? location.state : '/');
+            .then(result => {
+                console.log(result);
+                Swal.fire({
+                    position: 'top-right',
+                    title: `success`,
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+                navigate(location?.state ? location.state : '/');
 
-        })
-        .catch(error => {
-            console.error(error);
-            // toast.error('Email and password do not match')
-            // setLoading(false)
-            Swal.fire({
-                position: 'top-right',
-                title: `email and password dose not match`,
-                icon: 'warning',
-                showConfirmButton: false,
-                timer: 2000
             })
-        })
+            .catch(error => {
+                console.error(error);
+                // toast.error('Email and password do not match')
+                setLoading(false)
+                Swal.fire({
+                    position: 'top-right',
+                    title: `email and password dose not match`,
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            })
 
-    }
+        }
+
+
+        const provider = new GoogleAuthProvider();
+        const handleGoogleLogin = () => {
+            signInWithPopup(auth, provider)
+            .then(result => {
+                console.log(result);
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => console.error(error))
+          
+        };
+
+
+
 
     return (
         <div className="container mx-auto">
@@ -61,8 +79,8 @@ const Login = () => {
                         <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
                             <form onSubmit={handleLogin}>
                                 <div className="relative mb-6" data-te-input-wrapper-init>
-                                <label
-                                    
+                                    <label
+
                                     >
                                         Email address
                                     </label>
@@ -72,25 +90,25 @@ const Login = () => {
                                         className="peer hover:bg-gray-200 block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active] motion-reduce:transition-none dark:text-neutral-200  [&:not([data-te-input-placeholder-active])]"
                                         id="exampleFormControlInput3"
                                         placeholder="Email address" />
-                                  
+
                                 </div>
 
                                 <div className="relative mb-6" data-te-input-wrapper-init>
-                                <label
-                                       
-                                       >Password
-                                       </label>
+                                    <label
+
+                                    >Password
+                                    </label>
                                     <input name="password"
-                                          type={showPassword ? "text" : "password"}
+                                        type={showPassword ? "text" : "password"}
                                         className="peer hover:bg-gray-200 block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]motion-reduce:transition-none dark:text-neutral-200  [&:not([data-te-input-placeholder-active])]"
                                         id="exampleFormControlInput33"
                                         placeholder="Password" />
-                                                 <span className="absolute top-9 right-3" onClick={() => setShowPassword(!showPassword)}>
-                                            {
-                                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
-                                            }
-                                        </span>
-                                  
+                                    <span className="absolute top-9 right-3" onClick={() => setShowPassword(!showPassword)}>
+                                        {
+                                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                        }
+                                    </span>
+
                                 </div>
                                 <button
                                     type="submit"
@@ -108,10 +126,10 @@ const Login = () => {
                                     </p>
                                 </div>
 
-                                <a
+                                <div onClick={handleGoogleLogin}
                                     className="mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                                    style={{backgroundColor: "#3b5998"}}
-                                    href="#!"
+                                    style={{ backgroundColor: "#3b5998" }}
+                                  
                                     role="button"
                                     data-te-ripple-init
                                     data-te-ripple-color="light">
@@ -124,9 +142,9 @@ const Login = () => {
                                             d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                                     </svg>
                                     Continue with Facebook
-                                </a>
-                                <p className="text-center">If there is no account<Link to={'/registration'}   className="text-base hover:text-blue-600 hover:underline hover:font-semibold"> Registration</Link></p>
-                              
+                                </div>
+                                <p className="text-center">If there is no account<Link to={'/registration'} className="text-base hover:text-blue-600 hover:underline hover:font-semibold"> Registration</Link></p>
+
                             </form>
                         </div>
                     </div>

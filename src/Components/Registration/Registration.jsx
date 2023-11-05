@@ -9,7 +9,7 @@ const Registration = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
     const [red, setRed] = useState(false);
-    const {registerUser} = useAuth();
+    const {registerUser, userUpdate } = useAuth();
     const navigate = useNavigate();
 
     const handleRegistration = event => {
@@ -82,10 +82,31 @@ const Registration = () => {
         registerUser(email, password)
         .then(result => {
             console.log(result);
-            navigate('/');
+            Swal.fire({
+                position: 'center',
+                title: 'Registration Successfully',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            userUpdate(name, photo)
+            .then(result => {
+                console.log(result);
+                navigate('/');
+                // window.location.reload(false);
+            })
+            .catch(error => console.error(error))
         })
         .catch(error => {
             console.error(error);
+            Swal.fire({
+                position: 'center',
+                title: 'This email already exists',
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            
         })
     }
 
