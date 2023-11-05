@@ -97,7 +97,7 @@ const NavigationBar = () => {
                     }
 
 
-                    <Navbar.Collapse className='md:pr-16 lg:pr-0'>
+                    <Navbar.Collapse className='md:pr-16 lg:pr-0 effect'>
 
                         <li className="text-base  "><NavLink
                             to="/"
@@ -111,7 +111,7 @@ const NavigationBar = () => {
                             Home
                         </NavLink></li>
                         <li className="text-base "><NavLink
-                            to="/blogDetails"
+                            to="/addBlog"
                             style={({ isActive, isPending }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",
@@ -133,7 +133,7 @@ const NavigationBar = () => {
                             Blogs
                         </NavLink></li>
                         <li className="text-base block md:hidden lg:block "><NavLink
-                            to="/#"
+                            to="/blogDetails"
                             style={({ isActive, isPending }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",

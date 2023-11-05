@@ -3,7 +3,7 @@ import { Card } from "flowbite-react";
 // import Image from 'next/image';
 const BlogSection = () => {
     return (
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-xl mx-auto mb-14">
            
 
 
@@ -15,13 +15,10 @@ const BlogSection = () => {
                                 <span className="mb-2 block text-lg font-semibold text-primary">
                                     Our Blogs
                                 </span>
-                                <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px]">
-                                    Our Recent News
+                                <h2 className="mb-4 text-4xl md:text-5xl font-bold ">
+                                    Our Recent <span className=" text-indigo-500"> News</span>
                                 </h2>
-                                <p className="text-base text-body-color dark:text-dark-6">
-                                    There are many variations of passages of Lorem Ipsum available
-                                    but the majority have suffered alteration in some form.
-                                </p>
+                               
                             </div>
                         </div>
                     </div>

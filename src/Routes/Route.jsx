@@ -6,6 +6,7 @@ import Login from "../Components/Login/Login";
 import Registration from "../Components/Registration/Registration";
 import AllBlogs from "../Components/AllBlogs/AllBlogs";
 import BlogDetails from "../Components/BlogDetails/BlogDetails";
+import AddBlog from "../Components/AddBlog/AddBlog";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/addBlog",
+            element: <AddBlog/>
         },
         {
             path: "/allBlog",
