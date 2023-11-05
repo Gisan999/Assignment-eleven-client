@@ -27,7 +27,7 @@ const SubscribeSection = () => {
             backgroundPosition: 'right'
         }}>
             <div className='flex flex-col md:flex-row justify-center lg:gap-24 py-32 px-5 lg:px-0'>
-                <div><h2 className='text-5xl font-bold font-mono'>Subscribe to our <br /> Newsletter</h2></div>
+                <div className='border-l-8 pl-3 border-l-indigo-600'><h2 className='text-5xl font-bold font-mono'>Subscribe to our <br /> Newsletter</h2></div>
                 <div>
                     <form name='contact-form' onSubmit={handleSubscribe}>
                         <div className='flex py-6'>

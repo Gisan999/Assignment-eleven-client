@@ -1,9 +1,10 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import logo from '../../assets/logo2-removebg-preview.png'
+import { NavLink } from 'react-router-dom';
 
 const NavigationBar = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto sticky top-0'>
 
 
             <Navbar className='my-6' fluid rounded>
@@ -32,13 +33,73 @@ const NavigationBar = () => {
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
-                    <Navbar.Link href="#" active>
+                    {/* <li>home</li>
+                    <li>home</li>
+                    <li>home</li>
+                    <li>home</li>
+                    <li>home</li> */}
+                    <li className="text-base  "><NavLink
+                        to="/"
+                        style={({ isActive, isPending }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+                                color: isPending ? "red" : "black",
+                            };
+                        }}
+                    >
+                        Home
+                    </NavLink></li>
+                    <li className="text-base "><NavLink
+                        to="/blogDetails"
+                        style={({ isActive, isPending }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+                                color: isPending ? "red" : "black",
+                            };
+                        }}
+                    >
+                     Add Blog
+                    </NavLink></li>
+                    <li className="text-base "><NavLink
+                        to="/allBlog"
+                        style={({ isActive, isPending }) => {
+                            return {
+                                fontWeight: isActive ? "bold " : "",
+                                color: isPending ? "red" : "black",
+                            };
+                        }}
+                    >
+                        All Blogs
+                    </NavLink></li>
+                    <li className="text-base  "><NavLink
+                        to="/#"
+                        style={({ isActive, isPending }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+                                color: isPending ? "red" : "black",
+                            };
+                        }}
+                    >
+                        Featured Blogs
+                    </NavLink></li>
+                    <li className="text-base  "><NavLink
+                        to="/#"
+                        style={({ isActive, isPending }) => {
+                            return {
+                                fontWeight: isActive ? "bold " : "",
+                                color: isPending ? "red" : "black",
+                            };
+                        }}
+                    >
+                       Wishlist
+                    </NavLink></li>
+                    {/* <Navbar.Link href="/" active>
                         Home
                     </Navbar.Link>
                     <Navbar.Link href="#"> Add Blog</Navbar.Link>
-                    <Navbar.Link href="#">All blogs</Navbar.Link>
+                    <Navbar.Link to="/allBlog">All blogs</Navbar.Link>
                     <Navbar.Link href="#">Featured Blogs</Navbar.Link>
-                    <Navbar.Link href="#">Wishlist</Navbar.Link>
+                    <Navbar.Link href="#">Wishlist</Navbar.Link> */}
                 </Navbar.Collapse>
             </Navbar>
         </div>

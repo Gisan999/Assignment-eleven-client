@@ -11,7 +11,7 @@ import blog9 from '../../assets/blog10.webp'
 const Banner = () => {
     return (
         <div>
-            <div className="grid h-96 lg:grid-cols-2 lg:gap-4 sm:h-[650px] xl:h-[650px] ">
+            <div className="grid h-80 lg:grid-cols-2 lg:gap-4 sm:h-[450px] xl:h-[650px] ">
                 <Carousel>
                     <img className='h-full' src={blog2} alt="..." />
                     <img className='h-full' src={blog3} alt="..." />
@@ -20,7 +20,7 @@ const Banner = () => {
                     <img className='h-full' src={blog6} alt="..." />
 
                 </Carousel>
-                <Carousel className='invisible lg:visible'>
+                <Carousel className=' hidden lg:block'>
                     {/* indicators={false} */}
                     <img className='h-full' src={blog} alt="..." />
                     <img className='h-full' src={blog7} alt="..." />
