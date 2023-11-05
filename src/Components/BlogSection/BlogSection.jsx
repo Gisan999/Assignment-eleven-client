@@ -42,8 +42,8 @@ const BlogSection = () => {
                     Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological 
                 </p>
                 <div className="flex gap-5 ">
-                    <button className="bg-gradient-to-r from-sky-500 to-green-500 animate-pulse bg-clip-text text-transparent py-1  w-full border border-blue-500 font-semibold text-white hover:text-red-600 hover:border-red-600 uppercase font-serif">Details</button>
-                    <button className="bg-gradient-to-r from-sky-500 to-green-500 animate-pulse bg-clip-text text-transparent py-1  w-full border border-blue-500 font-semibold text-white  hover:text-pink-500 hover:border-pink-500 uppercase font-serif">Wishlist</button>
+                    <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white hover:text-green-400 hover:border-green-400 uppercase font-serif">Details</button>
+                    <button className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white  hover:text-black hover:border-black uppercase font-serif">Wishlist</button>
                 </div>
             </Card>
 

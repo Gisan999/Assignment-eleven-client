@@ -1,15 +1,16 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../Provider/AuthProvider";
+import useAuth from "../../useAuth/useAuth";
 
 
 const Registration = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
     const [red, setRed] = useState(false);
-    const {registerUser} = useContext(AuthContext);
+    const {registerUser} = useAuth();
+    const navigate = useNavigate();
 
     const handleRegistration = event => {
         event.preventDefault();
@@ -77,10 +78,11 @@ const Registration = () => {
         })
         }
         setRed(false)
-        console.log(name, photo, email, password, check, pass2);
+        // console.log(name, photo, email, password, check, pass2);
         registerUser(email, password)
         .then(result => {
             console.log(result);
+            navigate('/');
         })
         .catch(error => {
             console.error(error);

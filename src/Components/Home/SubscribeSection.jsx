@@ -36,7 +36,6 @@ const SubscribeSection = () => {
                           
                             <input   className='bg-sky-400 px-5 border-4 border-red-400  rounded-r-lg relative right-8 text-white font-bold' type="submit" value="Subscribe" />
                         </div>
-                        
                     </form>
 
                 </div>

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../useAuth/useAuth";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const {logIn} = useAuth();
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -12,6 +16,32 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        logIn(email, password)
+        .then(result => {
+            console.log(result);
+            Swal.fire({
+                position: 'top-right',
+                title: `success`,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            navigate(location?.state ? location.state : '/');
+
+        })
+        .catch(error => {
+            console.error(error);
+            // toast.error('Email and password do not match')
+            // setLoading(false)
+            Swal.fire({
+                position: 'top-right',
+                title: `email and password dose not match`,
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
 
     }
 
