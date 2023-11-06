@@ -1,5 +1,4 @@
 
-import { useId } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const BlogDetails = () => {

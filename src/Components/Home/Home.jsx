@@ -34,7 +34,7 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {
-                        blogs.map(data => <BlogSection key={data.title} blogs={data}></BlogSection>)
+                        blogs.slice(-6).map(data => <BlogSection key={data.title} blogs={data}></BlogSection>)
                     }
                 </div>
             </div>

@@ -40,7 +40,7 @@ const NavigationBar = () => {
             <div className='container mx-auto'>
 
 
-                <Navbar className={`mt-6 py-6  ${scrollValue ? 'bg-slate-100' : ''}`} fluid rounded>
+                <Navbar className={`mt-0 py-7  ${scrollValue ? 'bg-slate-100' : ''}`} fluid rounded>
                     <Navbar.Brand href="">
                         <img className='w-36 ' src={logo} alt="" />
                         {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span> */}
@@ -83,14 +83,14 @@ const NavigationBar = () => {
                                 <Navbar.Toggle />
                             </div>
                             <div className='md:order-2  hidden md:block lg:hidden'>
-                            <Link to={"/login"}>
-                                        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                                            <span className="relative px-5 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                                Log In
-                                            </span>
-                                        </button>
-                                    </Link>
-                                    
+                                <Link to={"/login"}>
+                                    <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                                        <span className="relative px-5 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Log In
+                                        </span>
+                                    </button>
+                                </Link>
+
                             </div>
                         </>
 
@@ -164,19 +164,24 @@ const NavigationBar = () => {
                                 };
                             }}
                         >
-                           Log In
+                            Log In
                         </NavLink></li>
-                        <li className='text-base hidden md:block lg:hidden'>
 
-                            <Dropdown label="Pages" inline>
-                                <Dropdown.Item><Link to={'/allBlog'}>  All Blogs</Link></Dropdown.Item>
-                                <Dropdown.Item><Link to={'/#'}> Featured Blogs</Link></Dropdown.Item>
-                                <Dropdown.Item><Link to={'/#'}>Wishlist</Link></Dropdown.Item>
-                                
-                            </Dropdown>
-                        </li>
 
                     </Navbar.Collapse>
+
+
+                    <div className='relative right-24 hidden md:block lg:hidden'>
+                        <div className='text-base '>
+
+                            <Dropdown className='text-black' label="Pages" inline>
+                                <Dropdown.Item><Link to={'/allBlog'}>  <span className='text-black'>All Blogs</span></Link></Dropdown.Item>
+                                <Dropdown.Item><Link to={'/#'}> Featured Blogs</Link></Dropdown.Item>
+                                <Dropdown.Item><Link to={'/#'}>Wishlist</Link></Dropdown.Item>
+
+                            </Dropdown>
+                        </div>
+                    </div>
                 </Navbar>
             </div>
         </div>
