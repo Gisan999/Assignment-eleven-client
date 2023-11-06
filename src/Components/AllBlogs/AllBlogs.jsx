@@ -1,6 +1,9 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const AllBlogs = () => {
+    const allData = useLoaderData();
+    console.log(allData);
     return (
         <div>
          <div className="max-w-[1750px]  mx-auto">

@@ -24,11 +24,13 @@ const router = createBrowserRouter([
         },
         {
             path: "/allBlog",
-            element: <AllBlogs/>
+            element: <AllBlogs/>,
+            loader: ()=>fetch(`http://localhost:5000/api/v1/blogs`)
         },
         {
-            path: "/blogDetails",
-            element: <BlogDetails/>
+            path: "/blogDetails/:id",
+            element: <BlogDetails/>,
+            loader: ({params})=> fetch(`http://localhost:5000/api/v1/blogs/${params.id}`)
         },
         {
             path:"/login",

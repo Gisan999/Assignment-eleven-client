@@ -133,7 +133,7 @@ const NavigationBar = () => {
                             Blogs
                         </NavLink></li>
                         <li className="text-base block md:hidden lg:block "><NavLink
-                            to="/blogDetails"
+                            to="/#"
                             style={({ isActive, isPending }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",

@@ -117,14 +117,14 @@ const Registration = () => {
             <div className="h-full bg-gray-400 dark:bg-gray-900">
                 <div className="mx-auto">
                     <div className="flex justify-center px-6 py-12">
-                        <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+                        <div className="w-full xl:w-3/4 lg:w-11/12 flex ">
                             <div className="w-full h-auto bg-gray-400 dark:bg-gray-800 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
 
-                                style={{ backgroundImage: ` url('https://source.unsplash.com/Mv9hjnEUHR4/600x800')` }}
+                                style={{ backgroundImage: ` url('https://images.pexels.com/photos/733856/pexels-photo-733856.jpeg?auto=compress&cs=tinysrgb&w=1600')` }}
 
                             ></div>
-                            <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
-                                <h3 className="py-4 text-2xl text-center text-gray-800 dark:text-white">Create an Account!</h3>
+                            <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none lg:py-24">
+                                <h3 className="py-4 text-4xl font-bold text-center text-gray-800 dark:text-white">Create an Account!</h3>
 
                                 <form onSubmit={handleRegistration} className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded">
                                     <div className="mb-4 md:flex md:justify-center">
