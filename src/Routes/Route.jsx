@@ -7,6 +7,7 @@ import Registration from "../Components/Registration/Registration";
 import AllBlogs from "../Components/AllBlogs/AllBlogs";
 import BlogDetails from "../Components/BlogDetails/BlogDetails";
 import AddBlog from "../Components/AddBlog/AddBlog";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/addBlog",
-            element: <AddBlog/>
+            element:<PrivateRoute> <AddBlog/></PrivateRoute>
         },
         {
             path: "/allBlog",

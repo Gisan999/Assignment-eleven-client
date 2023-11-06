@@ -2,7 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import ALlBlogsShow from "../ALlBlogsShow/ALlBlogsShow";
 import { Button } from "flowbite-react";
 import { useState } from "react";
-import { SlDrawer} from "react-icons/sl";
+import { SlDrawer } from "react-icons/sl";
+import { TfiReload } from "react-icons/tfi";
 
 
 const AllBlogs = () => {
@@ -16,60 +17,65 @@ const AllBlogs = () => {
         setFilterData(remaining);
     }
 
+    const btnReload = () => {
+        setFilterData(allData)
+    }
+
     return (
         <div className="mb-12">
+
             <div className="drawer-content flex flex-col items-center justify-center  lg:hidden relative">
                 {/* Page content here */}
-                <label htmlFor="my-drawer-2" className="absolute left-4 bottom-4 btn btn-outline  drawer-button lg:hidden text-2xl"><SlDrawer/></label>
+                <label htmlFor="my-drawer-2" className="absolute left-4 bottom-4 btn btn-outline  drawer-button lg:hidden text-2xl"><SlDrawer /></label>
                 <div className="w-full px-3 pl-28 my-4">
-                            <form onChange={(e) => setSearch(e.target.value)}>
-                                <input type="text" placeholder="Search Blog" className="py-2 pl-3 w-full p-2 mt-6 rounded-md text-lg" />
-                            </form>
-                        </div>
+                    <form onChange={(e) => setSearch(e.target.value)}>
+                        <input type="text" placeholder="Search Blog" className="py-2 pl-3 w-full p-2 mt-6 rounded-md text-lg" />
+                    </form>
+                </div>
 
             </div>
             <div className="max-w-[1750px]  mx-auto">
                 <div className="grid grid-cols-9 gap-5">
                     <div className=" hidden lg:block col-span-2 mt-5">
 
-                       <div className="sticky top-24 ">
-                       <div className="px-2 my-8">
-                            <form onChange={(e) => setSearch(e.target.value)}>
-                                <input type="text" placeholder="Search Blog" className="py-2 pl-3 w-full p-2 mt-6 rounded-md text-lg" />
-                            </form>
-                        </div>
-                        <p className="text-center text-2xl font-bold italic py-6">Select Category</p>
-                        <div className="flex justify-center">
-                            <div className="space-y-7">
+                        <div className="sticky top-24 ">
+                            <div className="px-2 my-8">
+                                <form onChange={(e) => setSearch(e.target.value)}>
+                                    <input type="text" placeholder="Search Blog" className="py-2 pl-3 w-full p-2 mt-6 rounded-md text-lg" />
+                                </form>
+                            </div>
+                            <p className="text-center text-2xl font-bold italic py-6">Select Category</p>
+                            <div className="flex justify-center">
+                                <div className="space-y-7">
 
-                                <Button className="w-full" onClick={() => btnClicked('Food')} outline gradientDuoTone="purpleToBlue">
-                                    <span className="px-16 text-lg w-full">Food</span>
-                                </Button>
+                                    <Button className="w-full" onClick={() => btnClicked('Food')} outline gradientDuoTone="purpleToBlue">
+                                        <span className="px-16 text-lg w-full">Food</span>
+                                    </Button>
 
-                                <Button className="w-full" onClick={() => btnClicked('Travel')} outline gradientDuoTone="purpleToBlue">
-                                    <span className="px-16 text-lg">Travel</span>
-                                </Button>
-                                <Button className="w-full" onClick={() => btnClicked('Technology')} outline gradientDuoTone="purpleToBlue">
-                                    <span className="px-16 text-lg ">Technology</span>
-                                </Button>
-                                <Button className="w-full" onClick={() => btnClicked('Crafts')} outline gradientDuoTone="purpleToBlue">
-                                    <span className="px-16 text-lg">Crafts</span>
-                                </Button>
-                                <Button className="w-full" onClick={() => btnClicked('Fitness')} outline gradientDuoTone="purpleToBlue">
-                                    <span className="px-16 text-lg"> Fitness</span>
-                                </Button>
-                                <Button className="w-full" onClick={() => btnClicked('Fashion')} outline gradientDuoTone="purpleToBlue">
-                                    <span className="px-16 text-lg">Fashion</span>
-                                </Button>
+                                    <Button className="w-full" onClick={() => btnClicked('Travel')} outline gradientDuoTone="purpleToBlue">
+                                        <span className="px-16 text-lg">Travel</span>
+                                    </Button>
+                                    <Button className="w-full" onClick={() => btnClicked('Technology')} outline gradientDuoTone="purpleToBlue">
+                                        <span className="px-16 text-lg ">Technology</span>
+                                    </Button>
+                                    <Button className="w-full" onClick={() => btnClicked('Crafts')} outline gradientDuoTone="purpleToBlue">
+                                        <span className="px-16 text-lg">Crafts</span>
+                                    </Button>
+                                    <Button className="w-full" onClick={() => btnClicked('Fitness')} outline gradientDuoTone="purpleToBlue">
+                                        <span className="px-16 text-lg"> Fitness</span>
+                                    </Button>
+                                    <Button className="w-full" onClick={() => btnClicked('Fashion')} outline gradientDuoTone="purpleToBlue">
+                                        <span className="px-16 text-lg">Fashion</span>
+                                    </Button>
+                                </div>
                             </div>
                         </div>
-                       </div>
 
 
                     </div>
 
                     <div className=" col-span-9 lg:col-span-7">
-
+                        <div className="max-w-screen-xl mx-auto flex justify-end mt-4"><button onClick={btnReload} className="text-xl btn-circle btn"><TfiReload /></button></div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                             {

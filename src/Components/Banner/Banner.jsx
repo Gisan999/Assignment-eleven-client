@@ -7,7 +7,8 @@ import blog5 from '../../assets/blog5.webp'
 import blog6 from '../../assets/blog6.jpeg'
 import blog7 from '../../assets/blog7.webp'
 import blog8 from '../../assets/blog8.webp'
-import blog9 from '../../assets/blog10.webp'
+import blog9 from '../../assets/blog11.jpg'
+import blog10 from '../../assets/blog10.webp'
 const Banner = () => {
     return (
         <div className='mt-12'>
@@ -24,7 +25,7 @@ const Banner = () => {
                     {/* indicators={false} */}
                     <img className='h-full' src={blog} alt="..." />
                     <img className='h-full' src={blog7} alt="..." />
-                    <img className='h-full' src={blog7} alt="..." />
+                    <img className='h-full' src={blog10} alt="..." />
                     <img className='h-full' src={blog8} alt="..." />
                     <img className='h-full' src={blog9} alt="..." />
                 </Carousel>

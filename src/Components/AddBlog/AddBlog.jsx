@@ -1,17 +1,43 @@
+import axios from 'axios';
 import bg from '../../assets/bg.jpeg'
+import useAuth from '../../useAuth/useAuth';
 import './AddBlog.css'
+import Swal from 'sweetalert2';
 
 const AddBlog = () => {
+    const { user } = useAuth();
+    // console.log(user);
+    const { displayName, photoURL } = user
 
-    const handleAddBlog = event =>{
+    const handleAddBlog = event => {
         event.preventDefault();
         const form = event.target;
         const title = form.title.value;
-        const photo = form.photo.value;
+        const img = form.photo.value;
         const category = form.category.value;
-        const short = form.short.value;
-        const long = form.long.value;
-        console.log(title, photo, category, short, long)
+        const shortDescription = form.short.value;
+        const longDescription = form.long.value;
+        const blogData = { title, img, category, shortDescription, longDescription, userImg: photoURL, userName: displayName }
+        console.log(blogData)
+
+
+
+        axios.post('http://localhost:5000/api/v1/blogs', blogData)
+        .then(res => {
+            const data = res.data;
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    position: 'center',
+                    title:'Blog added successfully',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            }
+
+        })
+
     }
 
     return (
@@ -61,7 +87,7 @@ const AddBlog = () => {
                                 <label htmlFor="floating_last_name" className="peer-focus:font-medium absolute text-base text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Long Description</label>
                             </div>
                         </div>
-                   
+
                         <button type="submit" className="w-full bg-blue-400 py-3 rounded-sm font-semibold text-white text-base hover:bg-blue-800">Submit</button>
                     </form>
                 </div>
