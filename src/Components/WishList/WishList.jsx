@@ -68,7 +68,7 @@ const WishList = () => {
         },
         {
             name: 'Description',
-            selector: row => row.shortDescription
+            selector: row => row.shortDescription.slice(0, 40)
         },
         {
             name: 'Details',
