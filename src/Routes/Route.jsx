@@ -8,6 +8,7 @@ import AllBlogs from "../Components/AllBlogs/AllBlogs";
 import BlogDetails from "../Components/BlogDetails/BlogDetails";
 import AddBlog from "../Components/AddBlog/AddBlog";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateBlog from "../Components/AddBlog/UpdateBlog";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
         {
             path: "/blogDetails/:id",
             element: <BlogDetails/>,
+            loader: ({params})=> fetch(`http://localhost:5000/api/v1/blogs/${params.id}`)
+        },
+        {
+            path: "/updateBlog/:id",
+            element: <UpdateBlog/>,
             loader: ({params})=> fetch(`http://localhost:5000/api/v1/blogs/${params.id}`)
         },
         {

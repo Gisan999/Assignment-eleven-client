@@ -1,12 +1,14 @@
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import useAuth from "../../useAuth/useAuth";
 
 const BlogDetails = () => {
+    const { user } = useAuth();
     const details = useLoaderData();
     console.log(details);
-    const { img, category, title, userImg, userName, longDescription } = details;
+    const { img, category, title, userImg, userName, longDescription, _id } = details;
 
-
+    console.log(user);
     return (
         <div >
 
@@ -129,19 +131,34 @@ const BlogDetails = () => {
 
                     <div className="container bg-teal-50  px-10 py-6 mx-auto ">
 
-                        <div  className="max-h-screen">
+                        <div className="max-h-screen">
                             <img className="  w-full h-[650px]" src={img} />
                         </div>
 
-                        <div className="flex items-center justify-start mt-4 mb-4">
+                        <div className="flex gap-5">
+                            <div className="flex items-center justify-start mt-4 mb-4">
 
-                            <a  className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">{category}</a>
+                                <a className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">{category}</a>
+                            </div>
+                            <div className="mt-4 mb-4">
+                                {
+                                    user?.displayName === userName ? <>
+                                        <div className="flex items-center justify-start mt-4 mb-4">
+
+                                            <Link to={`/updateBlog/${_id}`}>
+                                                <a className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">Update</a>
+                                            </Link>
+                                        </div>
+                                    </> : ''
+                                }
+
+                            </div>
                         </div>
                         <div className="mt-2">
                             <a href="#"
                                 className="sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-purple-500  hover:underline">{title}</a>
 
-                      
+
 
                             <div className="font-light text-gray-600">
 

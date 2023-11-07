@@ -9,6 +9,7 @@ import { TfiReload } from "react-icons/tfi";
 const AllBlogs = () => {
     const allData = useLoaderData();
     const [filterData, setFilterData] = useState(allData);
+    const [blogCount, setBlogCount] = useState(12);
     const [search, setSearch] = useState('')
     console.log(search);
 
@@ -18,7 +19,8 @@ const AllBlogs = () => {
     }
 
     const btnReload = () => {
-        setFilterData(allData)
+        // setFilterData(allData)
+        window.location.reload(false);
     }
 
     return (
@@ -80,11 +82,19 @@ const AllBlogs = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                             {
                                 filterData.filter(item => {
-                                    return item.title.toLowerCase().includes(search)
-                                    // return search.toLowerCase() === '' ? item :
-                                    //     item.title.toLowerCase().includes(search);
-                                }).map(data => <ALlBlogsShow key={data._id} blogs={data}></ALlBlogsShow>)
+                                    return item.title.toLowerCase().includes(search.toLowerCase())
+                                }).slice(0, blogCount).map(data => <ALlBlogsShow key={data._id} blogs={data}></ALlBlogsShow>)
                             }
+                        </div>
+
+                        <div className={filterData.length < 13 ? 'hidden' : ''}>
+                            <div className={blogCount === filterData?.length ? 'hidden' : ''}>
+
+                                <div className="flex justify-center py-8">
+                                    <button onClick={() => setBlogCount(filterData?.length)}
+                                        className="middle btn text-white bg-green-500 none center text-lg rounded-lg py-2 px-14 font-medium transition-all" > See All </button>
+                                </div>
+                            </div>
                         </div>
 
 
