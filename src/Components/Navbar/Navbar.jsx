@@ -130,7 +130,7 @@ const NavigationBar = () => {
                                 };
                             }}
                         >
-                            Blogs
+                           All Blogs
                         </NavLink></li>
                         <li className="text-base block md:hidden lg:block "><NavLink
                             to="/#"
