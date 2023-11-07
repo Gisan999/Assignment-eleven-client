@@ -1,11 +1,40 @@
 /* eslint-disable react/prop-types */
 
+import axios from "axios";
 import { Card } from "flowbite-react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../useAuth/useAuth";
 
 
 const ALlBlogsShow = ({ blogs }) => {
-    const { title, img, shortDescription, category, _id, } = blogs;
+    const {user} = useAuth();
+    const {email} = user;
+    const { title, img,userName, userImg, longDescription, shortDescription, category, _id, } = 
+    blogs;
+
+    const setWishList = { email, userName, userImg, img, category, title, shortDescription, longDescription, }
+
+    const handleWishList = () => {
+        axios.post(`http://localhost:5000/api/v1/wishList`, setWishList)
+            .then(res => {
+                const data = res.data;
+                console.log(data);
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your Blog has been added to wishlist',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+
+
+
     return (
         <div>
             <div className="flex justify-center p-5 lg:p-0 ">
@@ -34,7 +63,7 @@ const ALlBlogsShow = ({ blogs }) => {
 
                         </div>
                         <div className="w-full">
-                            <button className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white  hover:text-black hover:border-black uppercase font-serif">Wishlist</button>
+                            <button onClick={handleWishList} className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white  hover:text-black hover:border-black uppercase font-serif">Wishlist</button>
                         </div>
                     </div>
                 </Card>

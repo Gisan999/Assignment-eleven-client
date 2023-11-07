@@ -1,11 +1,31 @@
 /* eslint-disable react/prop-types */
-// import React from "react";
 import { Card } from "flowbite-react";
 import { Link } from "react-router-dom";
-// import Image from 'next/image';
+import useAuth from "../../useAuth/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 const BlogSection = ({ blogs }) => {
-    const { img, category, title, shortDescription, _id } = blogs;
+    const { user } = useAuth();
+    const { img, category, title, shortDescription, _id, longDescription, userName, userImg } = blogs;
 
+    const setWishList = { email: user?.email, userName, userImg, img, category, title, shortDescription, longDescription, }
+
+    const handleWishList = () => {
+        axios.post(`http://localhost:5000/api/v1/wishList`, setWishList)
+            .then(res => {
+                const data = res.data;
+                console.log(data);
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your Blog has been added to wishlist',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
 
 
     return (
@@ -38,7 +58,7 @@ const BlogSection = ({ blogs }) => {
 
                         </div>
                         <div className="w-full">
-                            <button className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white  hover:text-black hover:border-black uppercase font-serif">Wishlist</button>
+                            <button onClick={handleWishList} className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white  hover:text-black hover:border-black uppercase font-serif">Wishlist</button>
                         </div>
                     </div>
                 </Card>

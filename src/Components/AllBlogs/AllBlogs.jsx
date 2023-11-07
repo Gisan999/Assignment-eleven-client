@@ -26,16 +26,7 @@ const AllBlogs = () => {
     return (
         <div className="mb-12">
 
-            <div className="drawer-content flex flex-col items-center justify-center  lg:hidden relative">
-                {/* Page content here */}
-                <label htmlFor="my-drawer-2" className="absolute left-4 bottom-4 btn btn-outline  drawer-button lg:hidden text-2xl"><SlDrawer /></label>
-                <div className="w-full px-3 pl-28 my-4">
-                    <form onChange={(e) => setSearch(e.target.value)}>
-                        <input type="text" placeholder="Search Blog" className="py-2 pl-3 w-full p-2 mt-6 rounded-md text-lg" />
-                    </form>
-                </div>
-
-            </div>
+          
             <div className="max-w-[1750px]  mx-auto">
                 <div className="grid grid-cols-9 gap-5">
                     <div className=" hidden lg:block col-span-2 mt-5">
@@ -77,7 +68,19 @@ const AllBlogs = () => {
                     </div>
 
                     <div className=" col-span-9 lg:col-span-7">
-                        <div className="max-w-screen-xl mx-auto flex justify-end mt-4"><button onClick={btnReload} className="text-xl btn-circle btn"><TfiReload /></button></div>
+                        <div className="max-w-screen-xl mx-auto flex justify-end pr-5 lg:pr-0 mt-4"><button onClick={btnReload} className="text-xl btn-circle btn"><TfiReload /></button></div>
+
+
+                        <div className="drawer-content flex flex-col items-center justify-center  lg:hidden relative">
+                {/* Page content here */}
+                <label htmlFor="my-drawer-2" className="absolute left-4 bottom-4 btn btn-outline  drawer-button lg:hidden text-2xl"><SlDrawer /></label>
+                <div className="w-full px-3 pl-28 my-4">
+                    <form onChange={(e) => setSearch(e.target.value)}>
+                        <input type="text" placeholder="Search Blog" className="py-2 pl-3 w-full p-2 mt-6 rounded-md text-lg" />
+                    </form>
+                </div>
+
+            </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
                             {

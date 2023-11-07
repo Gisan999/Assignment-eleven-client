@@ -131,14 +131,14 @@ const BlogDetails = () => {
 
                     <div className="container bg-teal-50  px-10 py-6 mx-auto ">
 
-                        <div className="max-h-screen">
-                            <img className="  w-full h-[650px]" src={img} />
+                        <div className="">
+                            <img className="  w-full h-72 md:h-96 lg:h-[650px]" src={img} />
                         </div>
 
                         <div className="flex gap-5">
                             <div className="flex items-center justify-start mt-4 mb-4">
 
-                                <a className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">{category}</a>
+                                <div className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">{category}</div>
                             </div>
                             <div className="mt-4 mb-4">
                                 {
@@ -146,7 +146,7 @@ const BlogDetails = () => {
                                         <div className="flex items-center justify-start mt-4 mb-4">
 
                                             <Link to={`/updateBlog/${_id}`}>
-                                                <a className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">Update</a>
+                                                <div className="px-2 py-1 font-bold bg-red-400 text-white rounded-lg hover:bg-gray-500">Update</div>
                                             </Link>
                                         </div>
                                     </> : ''

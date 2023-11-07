@@ -1,5 +1,4 @@
 import { useLoaderData } from 'react-router-dom';
-import bg from '../../assets/bg.jpeg'
 // import useAuth from '../../useAuth/useAuth';
 import './AddBlog.css'
 import axios from 'axios';
@@ -45,7 +44,7 @@ const UpdateBlog = () => {
 
     return (
         <div style={{
-            backgroundImage: `url(${bg})`,
+            backgroundImage: `url('https://images.pexels.com/photos/4555526/pexels-photo-4555526.jpeg?auto=compress&cs=tinysrgb&w=1600')`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
