@@ -27,7 +27,7 @@ const BlogSection = ({ blogs }) => {
             })
     }
 
-
+console.log(blogs);
     return (
         <div className="max-w-screen-xl mx-auto mb-14">
 

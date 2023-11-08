@@ -44,7 +44,7 @@ const BlogDetails = () => {
                 // console.log(data);
                 setComment(filter);
             })
-    }, [])
+    }, [title])
     console.log(comment);
 
 

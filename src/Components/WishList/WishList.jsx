@@ -5,12 +5,19 @@ import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import axios from "axios";
 import Swal from "sweetalert2";
-// import DataTable from "react-data-table-component";
+import useAxiosSecure from "../../Provider/useAxiosSecure";
 
 const WishList = () => {
+const axiosApi = useAxiosSecure();
     const { user } = useAuth();
-    const wishList = useLoaderData();
+    const [wishList, setWishList] = useState([]);
     const [userWishList, setUserWishList] = useState([]);
+
+
+    useEffect(()=>{
+        axiosApi.get(`/wishList?email=${user?.email}`)
+        .then(res => setWishList(res.data))
+    },[user?.email, axiosApi])
 
 
     useEffect(() => {
@@ -19,7 +26,6 @@ const WishList = () => {
     }, [user?.email, wishList])
 
     const handleDelete = (id) => {
-        console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -54,6 +60,11 @@ const WishList = () => {
 
     const columns = [
         {
+            name: 'Serial',
+            selector: (row, idx) => <p className="font-bold">{idx + 1}</p>,
+            
+        },
+        {
             name: 'Category',
             selector: row => row.category,
             sortable: true
@@ -79,7 +90,7 @@ const WishList = () => {
             cell: row => <button onClick={()=>handleDelete(row._id)} className="btn btn-circle">X</button>
         }
     ]
-
+console.log(userWishList);
 
     return (
         <div className="container mx-auto mt-12">

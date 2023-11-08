@@ -10,6 +10,7 @@ import AddBlog from "../Components/AddBlog/AddBlog";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateBlog from "../Components/AddBlog/UpdateBlog";
 import WishList from "../Components/WishList/WishList";
+import FeaturedBlogs from "../Components/FeaturedBlogs/FeaturedBligs";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,12 @@ const router = createBrowserRouter([
         {
             path: "/wishList",
             element: <PrivateRoute><WishList/></PrivateRoute>,
-            loader: ()=>fetch(`http://localhost:5000/api/v1/wishList`)
+           
+        },
+        {
+            path: "/featuredBlogs",
+            element: <FeaturedBlogs/>,
+            loader: ()=>fetch(`http://localhost:5000/api/v1/feature`)
         },
         {
             path:"/login",

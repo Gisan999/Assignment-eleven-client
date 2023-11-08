@@ -20,7 +20,8 @@ const ALlBlogsShow = ({ blogs }) => {
     const { email } = user;
     const { title, img, userName, userImg, longDescription, shortDescription, category, _id, } =
         blogs;
-    const setWishList = { email, userName, userImg, img, category, title, shortDescription, longDescription, id: _id }
+        // const id = {_id};
+    const setWishList = { email, userName, userImg, img, category, title, shortDescription, id:_id, longDescription }
 
 
     useEffect(() => {

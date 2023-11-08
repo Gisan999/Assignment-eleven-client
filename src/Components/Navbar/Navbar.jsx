@@ -133,7 +133,7 @@ const NavigationBar = () => {
                            All Blogs
                         </NavLink></li>
                         <li className="text-base block md:hidden lg:block "><NavLink
-                            to="/#"
+                            to="/featuredBlogs"
                             style={({ isActive, isPending }) => {
                                 return {
                                     fontWeight: isActive ? "bold" : "",
@@ -176,7 +176,7 @@ const NavigationBar = () => {
 
                             <Dropdown className='text-black' label="Pages" inline>
                                 <Dropdown.Item><Link to={'/allBlog'}>  <span className='text-black'>All Blogs</span></Link></Dropdown.Item>
-                                <Dropdown.Item><Link to={'/#'}> Featured Blogs</Link></Dropdown.Item>
+                                <Dropdown.Item><Link to={'/featuredBlogs'}> Featured Blogs</Link></Dropdown.Item>
                                 <Dropdown.Item><Link to={'/wishList'}>Wishlist</Link></Dropdown.Item>
 
                             </Dropdown>
