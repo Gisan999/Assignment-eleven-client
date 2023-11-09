@@ -22,7 +22,7 @@ const AddBlog = () => {
 
 
 
-        axios.post('http://localhost:5000/api/v1/blogs', blogData)
+        axios.post('https://assignment-eleven-server-peach.vercel.app/api/v1/blogs', blogData)
         .then(res => {
             const data = res.data;
             console.log(data);

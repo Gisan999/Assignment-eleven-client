@@ -11,7 +11,7 @@ const BlogSection = ({ blogs }) => {
     const setWishList = { email: user?.email, userName, userImg, img, category, title, shortDescription, longDescription, }
 
     const handleWishList = () => {
-        axios.post(`http://localhost:5000/api/v1/wishList`, setWishList)
+        axios.post(`https://assignment-eleven-server-peach.vercel.app/api/v1/wishList`, setWishList)
             .then(res => {
                 const data = res.data;
                 console.log(data);
@@ -47,7 +47,7 @@ console.log(blogs);
                     <h2 className="text-xl font-semibold font-mono">Category: {category}</h2>
                     <p className="font-normal text-gray-700 dark:text-gray-400 font-mono border-l-4 border-l-indigo-600 pl-3">
                         {
-                            shortDescription.length > 30 ? shortDescription.slice(0, 60) : shortDescription
+                            shortDescription.length > 30 ? shortDescription.slice(0, 50) : shortDescription
                         }
                     </p>
                     <div className="flex gap-5 ">

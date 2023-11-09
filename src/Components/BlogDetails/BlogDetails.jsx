@@ -19,7 +19,7 @@ const BlogDetails = () => {
         console.log(postComment);
 
 
-        axios.post('http://localhost:5000/api/v1/comment', postComment)
+        axios.post('https://assignment-eleven-server-peach.vercel.app/api/v1/comment', postComment)
             .then(res => {
                 const data = res.data;
                 console.log(data);
@@ -37,7 +37,7 @@ const BlogDetails = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/comment`)
+        axios.get(`https://assignment-eleven-server-peach.vercel.app/api/v1/comment`)
             .then(res => {
                 const data = res.data;
                 const filter = data?.filter(data => data.title === title);

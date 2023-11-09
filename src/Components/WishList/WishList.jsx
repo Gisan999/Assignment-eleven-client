@@ -8,16 +8,17 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../Provider/useAxiosSecure";
 
 const WishList = () => {
-const axiosApi = useAxiosSecure();
+    // const axiosApi = useAxiosSecure();
     const { user } = useAuth();
     const [wishList, setWishList] = useState([]);
     const [userWishList, setUserWishList] = useState([]);
-
+    
+    console.log(userWishList);
 
     useEffect(()=>{
-        axiosApi.get(`/wishList?email=${user?.email}`)
+        axios.get(`https://assignment-eleven-server-peach.vercel.app/api/v1/wishList?email=${user?.email}`, {withCredentials: true})
         .then(res => setWishList(res.data))
-    },[user?.email, axiosApi])
+    },[user?.email])
 
 
     useEffect(() => {
@@ -37,7 +38,7 @@ const axiosApi = useAxiosSecure();
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:5000/api/v1/wishList/${id}`)
+                axios.delete(`https://assignment-eleven-server-peach.vercel.app/api/v1/wishList/${id}`)
                     .then(res => {
                         const data = res.data;
                         console.log(data);
@@ -48,7 +49,9 @@ const axiosApi = useAxiosSecure();
                                 'success'
                             )
                         }
-                        window.location.reload(false);
+                        // window.location.reload(false);
+                        const remaining = userWishList.filter(data => data._id !== id);
+                        setUserWishList(remaining);
                       
 
                     })
@@ -90,7 +93,6 @@ const axiosApi = useAxiosSecure();
             cell: row => <button onClick={()=>handleDelete(row._id)} className="btn btn-circle">X</button>
         }
     ]
-console.log(userWishList);
 
     return (
         <div className="container mx-auto mt-12">

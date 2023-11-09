@@ -6,6 +6,9 @@ import { SlDrawer } from "react-icons/sl";
 import { TfiReload } from "react-icons/tfi";
 import Skeleton from "react-loading-skeleton";
 
+import Aos from "aos";
+import 'aos/dist/aos.css'
+
 
 const AllBlogs = () => {
     const [emulator, setEmulator] = useState('');
@@ -15,20 +18,25 @@ const AllBlogs = () => {
     const [search, setSearch] = useState('')
     console.log(search);
 
+    useEffect(() => {
+        Aos.init();
+      }, [])
+    
     const btnClicked = text => {
         const remaining = allData?.filter(data => data['category'] === text);
         setFilterData(remaining);
     }
 
     const btnReload = () => {
-        window.location.reload(false);
+        // window.location.reload(false);
+        setFilterData(allData)
     }
 
     useEffect(() => {
         setTimeout(() => {
             setEmulator('Select Category')
 
-        }, 2 * 1000);
+        }, 1 * 1000);
     }, [])
 
     return (
@@ -42,7 +50,7 @@ const AllBlogs = () => {
                         <div className="sticky top-24 ">
 
 
-                            <div className={!emulator ? 'flex justify-center my-6 mt-12' : ''}> {!emulator && <Skeleton width={350} height={50} count={1} />}
+                            <div data-aos="fade-up" className={!emulator ? 'flex justify-center my-6 mt-12' : ''}> {!emulator && <Skeleton width={350} height={50} count={1} />}
                             </div>
 
 
@@ -56,7 +64,7 @@ const AllBlogs = () => {
                                 </div>
                             )}
 
-                            <div className={!emulator ? 'flex justify-center mt-14' : ''}>
+                            <div data-aos="fade-up" className={!emulator ? 'flex justify-center mt-14' : ''}>
                                 {!emulator && <Skeleton width={260} height={40} count={1} />}
                             </div>
 
@@ -132,7 +140,7 @@ const AllBlogs = () => {
                         </div>
 
                         <div className={filterData.length < 13 ? 'hidden' : ''}>
-                            <div className={blogCount === filterData?.length ? 'hidden' : ''}>
+                            <div data-aos="fade-up" className={blogCount === filterData?.length ? 'hidden' : ''}>
 
                                 <div className="flex justify-center py-8">
                                     <button onClick={() => setBlogCount(filterData?.length)}

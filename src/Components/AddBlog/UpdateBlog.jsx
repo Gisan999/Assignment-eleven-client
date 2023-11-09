@@ -21,7 +21,7 @@ const UpdateBlog = () => {
         const updateBlogData = { title, img, category, shortDescription, longDescription }
         // console.log(blogData)
 
-        axios.put(`http://localhost:5000/api/v1/blogs/${_id}`, updateBlogData)
+        axios.put(`https://assignment-eleven-server-peach.vercel.app/api/v1/blogs/${_id}`, updateBlogData)
         .then(res => {
             const data = res.data;
             console.log(data);

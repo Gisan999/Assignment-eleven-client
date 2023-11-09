@@ -8,6 +8,8 @@ import useAuth from "../../useAuth/useAuth";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { useEffect, useState } from "react";
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 
 const ALlBlogsShow = ({ blogs }) => {
@@ -23,6 +25,10 @@ const ALlBlogsShow = ({ blogs }) => {
         // const id = {_id};
     const setWishList = { email, userName, userImg, img, category, title, shortDescription, id:_id, longDescription }
 
+    useEffect(() => {
+        Aos.init();
+      }, [])
+    
 
     useEffect(() => {
         setTimeout(() => {
@@ -32,12 +38,12 @@ const ALlBlogsShow = ({ blogs }) => {
             setEmulatorDescription(shortDescription)
             setEmulatorButton('ll')
 
-        }, 2 * 1000);
+        }, 1 * 1000);
     }, [img, title, shortDescription, category])
 
 
     const handleWishList = () => {
-        axios.post(`http://localhost:5000/api/v1/wishList`, setWishList)
+        axios.post(`https://assignment-eleven-server-peach.vercel.app/api/v1/wishList`, setWishList)
             .then(res => {
                 const data = res.data;
                 console.log(data);
@@ -58,7 +64,7 @@ const ALlBlogsShow = ({ blogs }) => {
 
     return (
         <div>
-            <div className="flex justify-center p-5 lg:p-0 ">
+            <div data-aos="fade-up"  className="flex justify-center p-5 lg:p-0 ">
                 <Card
                     className={emulatorButton ? "border border-fuchsia-200 shadow-none " : 'border border-gray shadow-none '}
                 >
@@ -69,14 +75,14 @@ const ALlBlogsShow = ({ blogs }) => {
                         {!emulatorImage && <Skeleton count={1} height="290px" />}
                     </div>
 
-                    <div className="h-20  lg:block">
+                    <div data-aos="fade-up"  className="h-20  lg:block">
                         <h5 className="text-2xl font-bold font-serif tracking-tight text-gray-900 dark:text-white">
                             {/* {title} */}
                             {emulatorName || <Skeleton count={2} width="280px" />}
                         </h5>
                     </div>
 
-                    <div className=" hidden lg:block">
+                    <div data-aos="fade-up"  className=" hidden lg:block">
 
                         {!emulatorCategory && <Skeleton width="380px" />}
 
@@ -106,16 +112,16 @@ const ALlBlogsShow = ({ blogs }) => {
                     {!emulatorCategory && <Skeleton count={2} />}
 
 
-                    <div className="w-full  lg:block  ">
+                    <div data-aos="fade-up"  className="w-full  lg:block  ">
                         {emulatorImage && (
                             <div className="flex gap-5 ">
 
-                                <div className="w-full">
+                                <div data-aos="fade-up"  className="w-full">
                                     <Link to={`/blogDetails/${_id}`}>
                                         <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white hover:text-green-400 hover:border-green-400 uppercase font-serif">Details</button></Link>
 
                                 </div>
-                                <div className="w-full">
+                                <div data-aos="fade-up"  className="w-full">
                                     <button onClick={handleWishList} className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse  py-1  w-full border border-blue-500 font-semibold text-white  hover:text-black hover:border-black uppercase font-serif">Wishlist</button>
                                 </div>
                             </div>

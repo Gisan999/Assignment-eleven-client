@@ -5,7 +5,7 @@ const FooterSection = () => {
     return (
         <div>
             <Footer className='bg-slate-50' container>
-                <div className="w-full  py-6  container mx-auto">
+                <div className="w-full  py-24  container mx-auto">
                     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                         <div>
                             {/* <Footer.Brand

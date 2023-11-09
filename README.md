@@ -1,8 +1,24 @@
-# React + Vite
+  MY WEBSITE = 
+  CREATIVE: https://assignment-eleven-b0b1b.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+     -- -- -- My Website Features -- -- --
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- If you're not logged in, you can't go anywhere except the home page.
+
+- Clicking on any route without login will take you to the login page.
+
+- Used within the website json web token (jwt)
+
+- You can add blog by clicking the (add product) route if you want
+
+- using the react-intersection-observer on home page Our Recent News section
+
+- All blog pages used  react-loading-skeleton.
+
+- You can click on any blog to see its details and comments.
+
+- If you add a blog, you will not be able to comment on your own blog.
+
+
+

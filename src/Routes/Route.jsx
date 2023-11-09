@@ -29,17 +29,17 @@ const router = createBrowserRouter([
         {
             path: "/allBlog",
             element:<PrivateRoute><AllBlogs/></PrivateRoute>,
-            loader: ()=>fetch(`http://localhost:5000/api/v1/blogs`)
+            loader: ()=>fetch(`https://assignment-eleven-server-peach.vercel.app/api/v1/blogs`)
         },
         {
             path: "/blogDetails/:id",
             element: <PrivateRoute><BlogDetails/></PrivateRoute>,
-            loader: ({params})=> fetch(`http://localhost:5000/api/v1/blogs/${params.id}`)
+            loader: ({params})=> fetch(`https://assignment-eleven-server-peach.vercel.app/api/v1/blogs/${params.id}`)
         },
         {
             path: "/updateBlog/:id",
             element: <UpdateBlog/>,
-            loader: ({params})=> fetch(`http://localhost:5000/api/v1/blogs/${params.id}`)
+            loader: ({params})=> fetch(`https://assignment-eleven-server-peach.vercel.app/api/v1/blogs/${params.id}`)
         },
         {
             path: "/wishList",
@@ -48,8 +48,8 @@ const router = createBrowserRouter([
         },
         {
             path: "/featuredBlogs",
-            element: <FeaturedBlogs/>,
-            loader: ()=>fetch(`http://localhost:5000/api/v1/feature`)
+            element: <PrivateRoute><FeaturedBlogs/></PrivateRoute>,
+            loader: ()=>fetch(`https://assignment-eleven-server-peach.vercel.app/api/v1/feature`)
         },
         {
             path:"/login",

@@ -49,13 +49,13 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             setLoading(false)
             if (currentUser) {
-                axios.post('http://localhost:5000/api/v1/auth/jwt', loggedEmail, { withCredentials: true })
+                axios.post('https://assignment-eleven-server-peach.vercel.app/api/v1/auth/jwt', loggedEmail, { withCredentials: true })
                     .then(res => {
                         console.log('token response', res.data);
                     })
             }
             else {
-                axios.post('http://localhost:5000/api/v1/logout', loggedEmail, {
+                axios.post('https://assignment-eleven-server-peach.vercel.app/api/v1/logout', loggedEmail, {
                     withCredentials: true
                 })
                 .then( res => console.log(res.data))

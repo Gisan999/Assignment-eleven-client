@@ -26,7 +26,7 @@ const SubscribeSection = () => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'right'
         }}>
-            <div className='flex flex-col md:flex-row justify-center lg:gap-24 py-32 px-5 lg:px-0 border border-purple-200'>
+            <div className='flex flex-col md:flex-row justify-center lg:gap-24 py-48 px-5 lg:px-0 border border-purple-200'>
                 <div className='border-l-8 pl-3 border-l-indigo-600'><h2 className='text-5xl font-bold font-mono effect'>Subscribe to our <br /> Newsletter</h2></div>
                 <div>
                     <form name='contact-form' onSubmit={handleSubscribe}>
